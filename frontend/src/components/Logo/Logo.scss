@@ -1,0 +1,18 @@
+// Variables importées depuis le fichier principal
+@use '../../styles/variables' as *;
+
+.header-logo {
+  height: 19px;
+  width: auto;
+  
+  // Mobile (<768px) - logo plus petit et centré
+  @media (max-width: 767px) {
+    height: 16px;
+    align-self: center;
+  }
+  
+  // Tablette (>=768px et <1024px)
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    height: 18px;
+  }
+}

@@ -1,0 +1,190 @@
+// Variables importées depuis le fichier principal
+@use '../../styles/variables' as *;
+
+.navigation {
+  display: flex;
+  align-items: flex-end;
+  gap: 68px;
+  
+  // Mobile (<768px)
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    min-height: auto;
+  }
+  
+  // Mobile - Container pour les boutons et barres
+  @media (max-width: 767px) {
+    .navigation__buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: stretch;
+    }
+    
+    .navigation__bars {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: stretch;
+    }
+  }
+  
+  // Desktop et Tablette - Layout horizontal
+  @media (min-width: 768px) {
+    .navigation__buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 68px;
+    }
+    
+    .navigation__bars {
+      display: none; // Masqué sur desktop/tablette car on utilise nav-indicator
+    }
+  }
+  
+  // Tablette (>=768px et <1024px)
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    gap: 40px;
+  }
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: $font-weight-normal;
+  line-height: 1.174em;
+  color: #000000 !important;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  
+  // Desktop (>1024px) - dimensions fixes
+  @media (min-width: $breakpoint-desktop) {
+    &:first-child {
+      width: 113px;
+      height: 35px;
+    }
+    &:last-child {
+      width: 63px;
+      height: 35px;
+    }
+  }
+  
+  // Mobile (<768px)
+  @media (max-width: 767px) {
+    flex: 1;
+    height: 19px !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    background: none !important;
+    border: none !important;
+    color: #000000 !important;
+    
+    &.active {
+      color: $color-primary !important;
+    }
+  }
+  
+  // Desktop et Tablette (>=768px)
+  @media (min-width: 768px) {
+    flex: none;
+    height: auto !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    background: none !important;
+    border: none !important;
+    color: #000000 !important;
+    
+    &.active {
+      color: $color-primary !important;
+    }
+  }
+  
+  &:hover {
+    color: $color-primary !important;
+    background: none !important;
+    
+    .nav-indicator {
+      background-color: transparent;
+    }
+  }
+  
+  // Mobile - barre bleue en dessous uniquement pour l'état actif
+  @media (max-width: 767px) {
+    &:hover {
+      .nav-indicator {
+        background-color: transparent;
+      }
+    }
+    
+    &.active {
+      .nav-indicator {
+        background-color: $color-primary;
+      }
+    }
+  }
+  
+  &.active {
+    color: $color-primary !important;
+    background: none !important;
+
+    .nav-indicator {
+      background-color: $color-primary;
+    }
+  }
+  
+  &:focus,
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.nav-indicator {
+  height: 2px;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 8px; // marge au dessus du texte
+  order: -1; // Place la barre au-dessus du texte
+  
+  // Mobile (<768px) - masqué car on utilise nav-bar
+  @media (max-width: 767px) {
+    display: none;
+  }
+  
+  // Desktop et Tablette (>=768px) - visible
+  @media (min-width: 768px) {
+    display: block;
+    
+    &.active {
+      background-color: $color-primary;
+    }
+  }
+}
+
+// Barres de navigation mobile
+.nav-bar {
+  flex: 1;
+  height: 2px;
+  background-color: $color-neutral-light; // Barre grise par défaut
+  
+  &.active {
+    background-color: $color-primary; // Barre bleue pour l'actif
+  }
+}

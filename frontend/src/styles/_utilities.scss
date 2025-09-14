@@ -1,0 +1,69 @@
+// Import des variables
+@use 'variables' as *;
+
+// Classes utilitaires personnalisées pour Booki
+.text-title-section {
+  font-size: $font-size-title-section;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-title;
+}
+
+.text-card-title {
+  font-size: $font-size-card-title;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-text;
+}
+
+.text-information {
+  font-size: $font-size-information;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-text;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: white;
+  padding: 12px 24px;
+  border-radius: $spacing-button;
+  font-weight: $font-weight-bold;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba($color-primary, 0.9);
+  }
+}
+
+.btn-secondary {
+  background-color: $color-neutral-light;
+  color: $color-text-primary;
+  padding: 12px 24px;
+  border-radius: $spacing-button;
+  font-weight: $font-weight-bold;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $color-neutral;
+  }
+}
+
+.card {
+  background-color: $color-background;
+  border-radius: $spacing-card;
+  box-shadow: $shadow-card;
+  padding: 24px;
+}
+
+.search-bar {
+  box-shadow: $shadow-search;
+  border-radius: $spacing-button;
+  border: 1px solid $color-neutral-light;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $color-primary;
+  }
+}

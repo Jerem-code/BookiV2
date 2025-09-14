@@ -1,0 +1,6 @@
+// Fichier principal des styles
+// Utilise @use au lieu de @import (recommandé par Sass)
+
+@use 'variables';
+@use 'base';
+@use 'utilities';

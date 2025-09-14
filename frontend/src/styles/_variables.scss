@@ -1,0 +1,35 @@
+// Variables Sass basées sur la maquette Figma
+$color-primary: #0065fc;
+$color-primary-light: #deebff;
+$color-neutral: #d9d9d9;
+$color-neutral-light: #f2f2f2;
+$color-text-primary: #000000;
+$color-background: #ffffff;
+
+// Polices
+$font-family-primary: "Raleway", sans-serif;
+
+// Tailles de police
+$font-size-title-section: 22px;
+$font-size-card-title: 16px;
+$font-size-information: 16px;
+
+// Poids de police
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Hauteurs de ligne
+$line-height-title: 1.174em;
+$line-height-text: 1.174em;
+
+// Espacement
+$spacing-card: 15px;
+$spacing-button: 25px;
+
+// Ombres
+$shadow-card: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+$shadow-search: 0px 3px 15px 0px rgba(0, 0, 0, 0.1);
+
+// Breakpoints responsive
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
