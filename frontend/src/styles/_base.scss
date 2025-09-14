@@ -31,6 +31,12 @@ body {
 .app {
   min-height: 100vh;
   background-color: $color-background;
+  
+  // Largeur maximale pour les écrans desktop uniquement
+  @media (min-width: $breakpoint-desktop) {
+    max-width: $max-width-desktop;
+    margin: 0 auto;
+  }
 }
 
 a {
