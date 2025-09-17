@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Responsive - Booki</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .breakpoint-info {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #0065fc;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        z-index: 1000;
+      }
+      .test-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .device-test {
+        margin: 20px 0;
+        padding: 20px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+      }
+      .device-test h3 {
+        margin-top: 0;
+        color: #0065fc;
+      }
+      .responsive-demo {
+        background: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="breakpoint-info" id="breakpoint-info">
+      Largeur: <span id="width">0</span>px
+    </div>
+
+    <div class="test-container">
+      <h1>Test Responsive - Booki</h1>
+
+      <div class="device-test">
+        <h3>📱 Mobile (< 768px)</h3>
+        <p>Redimensionnez la fenêtre pour voir les changements responsive</p>
+        <div class="responsive-demo">
+          <p><strong>Comportement attendu :</strong></p>
+          <ul>
+            <li>Padding: 20px</li>
+            <li>Gap: 20px</li>
+            <li>SearchBar: largeur 100%</li>
+            <li>FilterBar: disposition horizontale</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="device-test">
+        <h3>📱 Tablette (768px - 1023px)</h3>
+        <div class="responsive-demo">
+          <p><strong>Comportement attendu :</strong></p>
+          <ul>
+            <li>Padding: 50px</li>
+            <li>Gap: 35px</li>
+            <li>SearchBar: largeur 100% avec max-width 500px</li>
+            <li>FilterBar: disposition en colonne</li>
+            <li>FilterButton: font-size 16px</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="device-test">
+        <h3>💻 Desktop (≥ 1024px)</h3>
+        <div class="responsive-demo">
+          <p><strong>Comportement attendu :</strong></p>
+          <ul>
+            <li>Padding: 50px</li>
+            <li>Gap: 35px</li>
+            <li>SearchBar: largeur 377px</li>
+            <li>FilterBar: disposition horizontale</li>
+            <li>FilterButton: font-size 17px</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateBreakpointInfo() {
+        const width = window.innerWidth;
+        document.getElementById("width").textContent = width;
+
+        const info = document.getElementById("breakpoint-info");
+        if (width < 768) {
+          info.style.background = "#ff6b6b";
+          info.textContent = `Mobile: ${width}px`;
+        } else if (width < 1024) {
+          info.style.background = "#4ecdc4";
+          info.textContent = `Tablette: ${width}px`;
+        } else {
+          info.style.background = "#0065fc";
+          info.textContent = `Desktop: ${width}px`;
+        }
+      }
+
+      window.addEventListener("resize", updateBreakpointInfo);
+      updateBreakpointInfo();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+@use '../../styles/variables' as *;
+
+.info-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid $color-neutral;
+    border-radius: 50%;
+    color: $color-primary;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  &__message {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-information;
+    line-height: $line-height-text;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}

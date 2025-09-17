@@ -1,11 +1,11 @@
-import { Header } from './components'
+import { Header, InfoGroup } from './components'
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <main>
-        {/* Le contenu principal sera ajouté ici */}
+      <main className="main-content">
+        <InfoGroup />
       </main>
     </div>
   )

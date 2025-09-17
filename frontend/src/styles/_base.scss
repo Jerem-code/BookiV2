@@ -1,8 +1,7 @@
 // Import des variables
 @use 'variables' as *;
 
-// Import de la police Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+// Les polices Google Fonts sont importées dans index.html
 
 // Styles de base
 * {
@@ -36,6 +35,25 @@ body {
   @media (min-width: $breakpoint-desktop) {
     max-width: $max-width-desktop;
     margin: 0 auto;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 0 50px;
+  
+  // Mobile (<768px)
+  @media (max-width: 767px) {
+    padding: 0 20px;
+    gap: 20px;
+  }
+  
+  // Tablette (>=768px et <1024px)
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    padding: 0 50px;
+    gap: 35px;
   }
 }
 

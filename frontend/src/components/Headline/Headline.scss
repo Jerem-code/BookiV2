@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  min-height: 53px;
+
+  &__title {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-title-section;
+    line-height: $line-height-title;
+    color: $color-text-primary;
+    margin: 0;
+    
+    // Mobile : ajustement de la taille de police
+    @media (max-width: 767px) {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-information;
+    line-height: $line-height-text;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}

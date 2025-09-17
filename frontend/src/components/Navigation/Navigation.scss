@@ -10,41 +10,52 @@
   @media (max-width: 767px) {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    gap: 0;
     width: 100%;
     min-height: auto;
   }
   
-  // Mobile - Container pour les boutons et barres
+  // Desktop et Tablette (>=768px) - Layout horizontal
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 68px;
+  }
+}
+
+// Container pour les boutons
+.navigation__buttons {
+  display: flex;
+  align-items: flex-end;
+  gap: 68px;
+  
+  // Mobile (<768px)
   @media (max-width: 767px) {
-    .navigation__buttons {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      align-items: stretch;
-    }
-    
-    .navigation__bars {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      align-items: stretch;
-    }
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
+    // Supprime la bordure qui doublait la barre
+    border-bottom: none;
   }
   
-  // Desktop et Tablette - Layout horizontal
+  // Desktop et Tablette (>=768px)
   @media (min-width: 768px) {
-    .navigation__buttons {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      gap: 68px;
-    }
-    
-    .navigation__bars {
-      display: none; // Masqué sur desktop/tablette car on utilise nav-indicator
-    }
+    flex-direction: row;
+    gap: 68px;
+  }
+}
+
+// Container pour les barres (mobile uniquement)
+.navigation__bars {
+  display: none;
+  
+  // Mobile (<768px)
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0;
   }
   
   // Tablette (>=768px et <1024px)
@@ -93,6 +104,11 @@
     background: none !important;
     border: none !important;
     color: #000000 !important;
+    border-right: 1px solid #F2F2F2;
+    
+    &:last-child {
+      border-right: none;
+    }
     
     &.active {
       color: $color-primary !important;
@@ -110,6 +126,7 @@
     background: none !important;
     border: none !important;
     color: #000000 !important;
+    width: auto;
     
     &.active {
       color: $color-primary !important;
@@ -125,18 +142,10 @@
     }
   }
   
-  // Mobile - barre bleue en dessous uniquement pour l'état actif
+  // Mobile - la barre intérieure est cachée, seule la barre externe s'affiche
   @media (max-width: 767px) {
-    &:hover {
-      .nav-indicator {
-        background-color: transparent;
-      }
-    }
-    
-    &.active {
-      .nav-indicator {
-        background-color: $color-primary;
-      }
+    .nav-indicator {
+      display: none;
     }
   }
   
@@ -163,14 +172,12 @@
   margin-bottom: 8px; // marge au dessus du texte
   order: -1; // Place la barre au-dessus du texte
   
-  // Mobile (<768px) - masqué car on utilise nav-bar
-  @media (max-width: 767px) {
-    display: none;
-  }
-  
-  // Desktop et Tablette (>=768px) - visible
+  // Desktop et Tablette (>=768px)
   @media (min-width: 768px) {
     display: block;
+    order: -1;
+    margin-bottom: 8px;
+    background-color: transparent;
     
     &.active {
       background-color: $color-primary;
@@ -182,9 +189,10 @@
 .nav-bar {
   flex: 1;
   height: 2px;
-  background-color: $color-neutral-light; // Barre grise par défaut
+  background-color: #F2F2F2;
   
   &.active {
-    background-color: $color-primary; // Barre bleue pour l'actif
+    background-color: $color-primary;
   }
 }
+

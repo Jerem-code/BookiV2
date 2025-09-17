@@ -1,0 +1,54 @@
+@use '../../styles/variables' as *;
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 50px;
+
+  // Tablette : disposition en colonne
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    height: auto;
+  }
+
+  // Mobile : disposition en colonne avec espacement
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    height: auto;
+  }
+
+  &__title {
+    font-family: $font-family-primary;
+    font-weight: $font-weight-bold;
+    font-size: 18px;
+    line-height: $line-height-text;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    // Tablette : disposition en ligne avec wrap
+    @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+      gap: 15px;
+      width: 100%;
+    }
+
+    // Mobile : disposition en ligne avec wrap
+    @media (max-width: 767px) {
+      gap: 10px;
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+}

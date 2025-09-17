@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 100%;
+
+  // Tablette : ajustement du gap
+  @media (min-width: $breakpoint-tablet) and (max-width: 1023px) {
+    gap: 30px;
+  }
+
+  // Mobile : gap réduit et padding
+  @media (max-width: 767px) {
+    gap: 25px;
+    padding: 0 20px;
+  }
+}
